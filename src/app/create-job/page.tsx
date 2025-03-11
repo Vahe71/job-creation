@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { GetStarted } from "../get-started/page";
 import { FirstStep } from "../first-step/page";
 import { SecondStep } from "../second-step/page";
@@ -16,7 +16,7 @@ const stepsData = [
   { stepCount: 5, active: false, checked: false },
 ];
 
-export default function page() {
+export default function CreateJob() {
   const [currentStep, setCurrentStep] = useState(0);
   const [currentStepsData, setCurrentStepsData] = useState(stepsData);
 

@@ -1,10 +1,13 @@
 import { CardSlider } from "@/components/CardSlider";
 import { PostedJobField } from "@/components/PostedJobField";
-import Image from "next/image";
 
 const personsData = [
-  {name: 'Ioanna S.', profession: 'Beauty and Wellness', totalEarning: '$3K+', totalJobs: 12, totalHours: 155, lastContractTogether: 'Bridal Hairstyling for Wedding Ceremony', imgUrl: '/personOne.jpg'  }
-]
+  { name: 'Ioanna S.', profession: 'Beauty and Wellness', totalEarning: '$3K+', totalJobs: 12, totalHours: 155, lastContractTogether: 'Bridal Hairstyling for Wedding Ceremony', imgUrl: '/personOne.jpg' },
+  { name: 'Ioanna S.', profession: 'Beauty and Wellness', totalEarning: '$3K+', totalJobs: 12, totalHours: 155, lastContractTogether: 'Bridal Hairstyling for Wedding Ceremony', imgUrl: '/personOne.jpg' },
+  { name: 'Ioanna S.', profession: 'Beauty and Wellness', totalEarning: '$3K+', totalJobs: 12, totalHours: 155, lastContractTogether: 'Bridal Hairstyling for Wedding Ceremony', imgUrl: '/personOne.jpg' },
+  { name: 'Ioanna S.', profession: 'Beauty and Wellness', totalEarning: '$3K+', totalJobs: 12, totalHours: 155, lastContractTogether: 'Bridal Hairstyling for Wedding Ceremony', imgUrl: '/personOne.jpg' },
+  { name: 'Ioanna S.', profession: 'Beauty and Wellness', totalEarning: '$3K+', totalJobs: 12, totalHours: 155, lastContractTogether: 'Bridal Hairstyling for Wedding Ceremony', imgUrl: '/personOne.jpg' },
+];
 
 export default function Home() {
   return (
@@ -28,7 +31,13 @@ export default function Home() {
           <span className="text-[30px] font-medium text-[#18470D] mb-[60px] block">
             Work together again on something new
           </span>
-          <CardSlider />
+          <CardSlider personsData={personsData} />
+        </div>
+        <div className="mt-[70px]">
+          <span className="text-[30px] font-medium text-[#18470D] mb-[60px] block">
+            Work together again on something new
+          </span>
+          <CardSlider personsData={personsData} />
         </div>
       </div>
     </main>
