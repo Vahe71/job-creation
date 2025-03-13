@@ -2,6 +2,7 @@
 import { CardSlider } from "@/components/CardSlider";
 import { EmptyJobField } from "@/components/EmptyJobField";
 import { JobFieldCards } from "@/components/JobFieldCards";
+import Link from "next/link";
 import { useState } from "react";
 
 const personsData = [
@@ -92,18 +93,26 @@ export default function Home() {
     <main className="pt-[36px] sm:pt-[57px] lg:pt-[106px] 2xl:pt-[117px] px-[20px] sm:px-[40px] overflow-x-hidden">
       <div className="sm:max-w-[780px] lg:max-w-[1200px] 2xl:max-w-[1380px] mx-auto">
         <div>
-          <div className={`${jobsDataApi ? ' mb-[27px] ' : ' mb-[110px] sm:mb-[130px] lg:mb-[190px] '}  flex justify-between items-center gap-[30px] flex-wrap`}>
+          <div
+            className={`${
+              false // has data
+                ? " mb-[27px] "
+                : " mb-[110px] sm:mb-[130px] lg:mb-[190px] "
+            }  flex justify-between items-center gap-[30px] flex-wrap`}
+          >
             <span className="text-[20px] sm:text-[30px] xl:text-[40px] font-medium text-[#18470D]">
               Welcome back, User
             </span>
-            <button
-              className="cursor-pointer w-[200px] h-[40px] text-nowrap sm:w-[200px] sm:h-[48px] p-[8px_20px] lg:p-[12px_35px] rounded-full bg-[#CBEC5E] text-[#18470D] text-[16px] font-medium"
-              type="button"
-            >
-              + Post a job
-            </button>
+            <Link href={"/create-job"}>
+              <button
+                className="cursor-pointer w-[200px] h-[40px] text-nowrap sm:w-[200px] sm:h-[48px] p-[8px_20px] lg:p-[12px_35px] rounded-full bg-[#CBEC5E] text-[#18470D] text-[16px] font-medium"
+                type="button"
+              >
+                + Post a job
+              </button>
+            </Link>
           </div>
-          {jobsDataApi ? (
+          {false ? ( // has data
             <JobFieldCards jobsDataApi={jobsDataApi} />
           ) : (
             <EmptyJobField />

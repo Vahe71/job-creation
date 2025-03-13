@@ -9,36 +9,36 @@ export const FourthStep: React.FC<FourthStepProps> = ({ handleChangeStep, curren
 
   return (
     <div className="px-[20px] lg:justify-center xl:justify-between max-w-[500px] lg:max-w-[1240px] 2xl:max-w-[1360px] mx-auto lg:pt-[157px] sm:pt-[77px] pt-[48px] flex justify-between flex-wrap gap-x-[20px] mb-[111px] gap-y-[30px] sm:gap-y-[18px]">
-      <div className="sm:max-w-[482px] lg:max-w-[500px]">
+      <div className="sm:max-w-[482px] lg:max-w-[446px]">
         <StepsPanel stepsData={currentStepsData} />
         <h1 className="text-[#000] text-[20px] font-medium sm:text-[30px] lg:text-[40px] sm:mt-[30px] lg:mt-[20px] 2xl:mt-[48px] mt-[48px]">
-          Define the budget
+        Let's find the right 
+        match for your needs!
         </h1>
         <div className="text-[#545454] text-[16px] sm:text-[14px] lg:text-[18px] mt-[26px] 2xl:mt-[8px] lg:max-w-[385px] sm:max-w-[300px]">
           <p>This will help us match you to talent within your range.</p>
         </div>
       </div>
-      <div className="lg:max-w-[518px] min-h-[373px] xl:min-h-[670px] w-full flex flex-col">
+      <div className="lg:max-w-[460px] min-h-[373px] xl:min-h-[670px] w-full flex flex-col">
         <div className="flex-1">
           <div>
             <h2 className="text-[#000] text-[16px] sm:text-[20px] font-medium lg:text-[30px]">
-              Fixed Price
+            Choose Your Payment Style
             </h2>
             <div className="text-[#545454] text-[16px] sm:text-[16px] lg:text-[18px] lg:mt-[8px] mt-[12px]">
               <span>
-                Set a price for the project and pay at the end , or you can
-                divide the project into milestones and pay as each milestone is
-                completed.
+              Decide how you want to pay: one-time payment 
+              or step-by-step milestones.
               </span>
             </div>
           </div>
           <div>
             <h2 className="text-[#000] text-[16px] font-medium sm:text-[20px] lg:text-[24px] sm:mt-[40px] xl:mt-[46px] 2xl:mt-[46px] mt-[22px] lg:mb-[7px] mb-[12px] 2xl:max-w-[412px]">
-              What is the best cost estimate for your project?
+            What’s your estimated budget?
             </h2>
             <span className="text-[#545454] text-[16px] sm:text-[16px] lg:text-[18px] mt-[19px] ">
-              You can negotiate this cost and create milestones when you chat
-              with your freelancer.
+            Not sure yet? No problem! You can set the budget
+            and milestones later when you chat with the talent.
             </span>
           </div>
           <div className="mt-[18px] lg:mt-[35px] sm:mt-[30px]">
@@ -60,7 +60,7 @@ export const FourthStep: React.FC<FourthStepProps> = ({ handleChangeStep, curren
           </div>
         </div>
         <div className="flex gap-[16px] sm:mt-[140px] mt-[48px] justify-end">
-          <button className="w-[140px] h-[40px] lg:w-[200px] lg:h-[48px] text-[#18470D] text-[16px] border-1 border-[#CCCCCC] rounded-[50px] cursor-pointer font-medium">
+          <button onClick={() => handleChangeStep(3)} className="w-[140px] h-[40px] lg:w-[200px] lg:h-[48px] text-[#18470D] text-[16px] border-1 border-[#CCCCCC] rounded-[50px] cursor-pointer font-medium">
             Back
           </button>
           <button onClick={() => handleChangeStep(5)} className="w-[140px] h-[40px] lg:w-[200px] lg:h-[48px] text-[#18470D] text-[16px] rounded-[50px] cursor-pointer font-medium bg-[#CBEC5E]">

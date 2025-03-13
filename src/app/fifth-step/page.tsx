@@ -4,10 +4,10 @@ import { useState } from "react";
 import Link from "next/link";
 
 const headingItems = [
-  "Clearly define your task or deliverables.",
-  "List the essential skills needed.",
-  "Emphasize good communication.",
-  "Provide insights on your preferred work style.",
+  "Clearly outline what needs to be done.",
+  "Highlight the must-have skills.",
+  "Keep communication open and easy.",
+  "Let them know how you like to work.",
 ];
 interface FifthStepProps {
   handleChangeStep: (step: number) => void;
@@ -26,11 +26,12 @@ export const FifthStep: React.FC<FifthStepProps> = ({ currentStepsData }) => {
         <div className="max-w-[380px] lg:max-w-[500px] w-full">
           <StepsPanel stepsData={currentStepsData} />
           <h1 className="text-[#000] text-[20px] font-medium sm:text-[30px] lg:text-[40px] mt-[48px]">
-            Begin the Discussion.
+            Let's Chat!
           </h1>
           <div className="sm:min-w-[328px] lg:max-w-[328px] xl:min-w-[514px] mt-[28px] sm:mt-[38px] lg:mt-[22px] ">
             <p className="text-[14px] text-[#545454] sm:text-[16px] lg:text-[18px] flex items-center gap-[10px]">
-              Share key details to help find the right talent:
+              You’re almost there—time to connect! <br />
+              Share a few key details to help find the perfect match:
             </p>
             <ul className="w-full mt-[25px] sm:mt-[20px] lg:max-w-none lg:mt-[11px] leading-[22px] sm:leading-[26px]">
               {headingItems.map((item, i) => {
@@ -45,6 +46,9 @@ export const FifthStep: React.FC<FifthStepProps> = ({ currentStepsData }) => {
                 );
               })}
             </ul>
+            <p className="text-[14px] text-[#545454] sm:text-[16px] lg:text-[18px] flex items-center gap-[10px]">
+            A great match starts with a great conversation!
+            </p>
           </div>
         </div>
         <div className="max-w-[350px] lg:max-w-[450px] w-full">
@@ -53,7 +57,7 @@ export const FifthStep: React.FC<FifthStepProps> = ({ currentStepsData }) => {
               className="text-[#000] sm:text-[16px] lg:text-[18px]"
               htmlFor="input"
             >
-              Describe job responsibilities
+              Describe your job
             </label>
             <div className="border-1 border-[#AEB3BC] rounded-[12px] mt-[8px] p-[10px] min-h-[146px] flex flex-col">
               <textarea

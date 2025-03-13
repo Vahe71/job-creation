@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { PopupCheckIcon } from "../../public/icons/PopupCheckIcon";
 import { CloseIcon } from "./CloseIcon";
 
@@ -21,19 +22,23 @@ export const JobDetailsPopup: React.FC<PopupProps> = ({ setPopupVisible }) => {
           <PopupCheckIcon />
         </div>
         <span className="text-[16px] sm:text-[20px] lg:text-[26px] text-black font-medium mt-[27px]">
-          Your job successfully created
+        Job created successfully!
         </span>
         <p className="text-[14px] lg:text-[16px] text-[#545454] max-w-[390px] text-center mt-[10px]">
-          Your job has been created successfully. You can proceed with the next
-          steps.
+        Your job has been created successfully. You can 
+        proceed with the next steps.
         </p>
         <div className="flex gap-[16px] mt-[30px] sm:mt-[47px] justify-center flex-wrap">
-          <button className="w-[190px] h-[48px] text-[#18470D] text-[16px] border-1 border-[#CCCCCC] rounded-[50px] cursor-pointer font-medium">
-            Back to Home
-          </button>
-          <button className="w-[190px] h-[48px] text-[#18470D] text-[16px] rounded-[50px] cursor-pointer font-medium bg-[#CBEC5E]">
-            Create a new job
-          </button>
+          <Link href={"/"}>
+            <button className="w-[190px] h-[48px] text-[#18470D] text-[16px] border-1 border-[#CCCCCC] rounded-[50px] cursor-pointer font-medium">
+              Back to Home
+            </button>
+          </Link>
+          <Link href={"/create-job"}>
+            <button className="w-[190px] h-[48px] text-[#18470D] text-[16px] rounded-[50px] cursor-pointer font-medium bg-[#CBEC5E]">
+              Create a new job
+            </button>
+          </Link>
         </div>
       </div>
     </div>

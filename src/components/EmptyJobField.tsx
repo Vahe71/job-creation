@@ -1,14 +1,19 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export const EmptyJobField = () => {
   const [imageSrc, setImageSrc] = useState("/cardTops.png");
 
   useEffect(() => {
-    if (window.innerWidth > 640) {
+    if (window.innerWidth >= 1920) {
       setImageSrc("/cardTops.png");
-    } else {
+    } else if (window.innerWidth >= 1440) {
+      setImageSrc("/cardTopMedium.png");
+    } else if (window.innerWidth >= 640) {
+      setImageSrc("/cardTops.png");
+    } else if (window.innerWidth >= 0) {
       setImageSrc("/mobileCardTops.png");
     }
   }, []);
@@ -21,10 +26,10 @@ export const EmptyJobField = () => {
           width={663}
           height={47}
           alt=""
-          className=" absolute -top-[8px] sm:top-[1px] lg:top-0 2xl:-top-[6px] right-0 -translate-y-[48px] translate-x-[1.5px] lg:max-w-[570px] 2xl:h-[55px] 2xl:max-w-[663px] sm:max-w-[370px] sm:h-[48px] max-w-[172px] h-[56px]"
+          className=" absolute -top-[5.9px] sm:top-[2px] lg:top-[1px] 2xl:-top-[4px] right-[.7px] -translate-y-[41px] sm:-translate-y-[49px] lg:-translate-y-[47.5px] translate-x-[1.5px] lg:max-w-[570px] 2xl:h-[52px] 2xl:max-w-[663px] sm:max-w-[370px] sm:h-[47px] max-w-[172px] h-[47px]"
           unoptimized
         />
-        <div className="pb-[35px] sm:mb-[20px] lg:mb-0 h-[100%] flex flex-col justify-center items-center">
+        <div className="pb-[35px] 2xl:pb-[40px] sm:mb-[20px] lg:mb-0 h-[100%] flex flex-col justify-center items-center">
           <Image
             src={"/briefcase.png"}
             alt="briefcase"
@@ -35,9 +40,11 @@ export const EmptyJobField = () => {
           <span className="mt-[20px] sm:mt-[10px] lg:mt-0 sm:text-[20px] lg:text-[30px] text-black font-medium">
             No job posted yet
           </span>
-          <button className="mt-[28px] w-[200px] h-[48px] text-[#18470D] text-[16px] border-1 border-[#545454] rounded-[50px] cursor-pointer font-medium">
-            + Post a Job
-          </button>
+          <Link href={"/create-job"}>
+            <button className="mt-[28px] w-[160px] h-[40px] sm:w-[200px] sm:h-[48px] text-[#18470D] text-[16px] border-1 border-[#545454] rounded-[50px] cursor-pointer font-medium">
+              + Post a Job
+            </button>
+          </Link>
         </div>
       </div>
     </div>

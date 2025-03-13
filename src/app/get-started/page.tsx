@@ -3,11 +3,12 @@ import { useEffect, useState } from "react";
 import DropdownInput from "@/components/DropDownInput";
 import { TermCard } from "@/components/TermCard";
 import { GreenArrowBtn } from "../../../public/icons/GreenArrowBtn";
+import Link from "next/link";
 
 const headingItems = [
   "Define your project details, budget, and expectations.",
   "Attract top talent by posting a fresh listing.",
-  "Set up requirements to match the right professionals.",
+  "Set up requirements to match the right talents.",
 ];
 
 const dropdownList = [
@@ -43,7 +44,7 @@ export const GetStarted: React.FC<GetStartedProps> = ({ handleChangeStep }) => {
   const [secondLiOpened, setSecondLiOpened] = useState(false);
 
   return (
-    <main className="justify-center md:justify-between gap-[20px_3px] px-[20px] flex-wrap lg:flex-nowrap pt-[30px] sm:px-[40px] lg:max-w-[1280px] 2xl:max-w-[1550px] mx-auto lg:pt-[111px] 2xl:pt-[130px] sm:pt-[71px] flex lg:px-[110px 2xl:px-none]">
+    <main className="justify-center md:justify-between sm:gap-[20px_3px] px-[20px] flex-wrap lg:flex-nowrap pt-[30px] sm:px-[40px] xl:px-0 lg:max-w-[1200px] 2xl:max-w-[1430px] mx-auto lg:pt-[111px] 2xl:pt-[130px] sm:pt-[71px] flex lg:px-[110px 2xl:px-none]">
       <div className="sm:min-w-[328px] sm:max-w-[328px] xl:min-w-[514px] ">
         <h1 className="max-w-[220px] sm:max-w-none text-[20px] sm:text-[30px] lg:text-[40px] text-[#000] font-medium">
           How can we help you get started?
@@ -65,7 +66,7 @@ export const GetStarted: React.FC<GetStartedProps> = ({ handleChangeStep }) => {
           })}
         </ul>
       </div>
-      <div className="min-h-[335px] sm:min-h-[466px] lg:min-h-[540px] 2xl:min-h-[544px] w-full sm:w-auto max-w-[335px] sm:max-w-none my-[82px] sm:mt-0 flex flex-col gap-[20px_0]">
+      <div className="min-h-[335px] sm:min-h-[466px] lg:min-h-[540px] 2xl:min-h-[544px] w-full sm:w-auto max-w-[335px] sm:max-w-none my-[42px] sm:my-[82px] sm:mt-0 flex flex-col gap-[20px_0]">
         <ul className="flex flex-col w-full sm:w-[357px] lg:w-[590px] pt-[10px] gap-[19px]">
           <li
             className={
@@ -122,7 +123,7 @@ export const GetStarted: React.FC<GetStartedProps> = ({ handleChangeStep }) => {
             </div>
             <div
               className={
-                "sm:pl-[9px] lg:pl-[16px] lg:pr-[38px] sm:pr-[21px]" +
+                "sm:pl-[9px] lg:pl-[16px] lg:pr-[38px] sm:pr-[21px] mb-[14px]" +
                 (secondLiOpened ? " block " : " hidden ")
               }
             >
@@ -131,9 +132,11 @@ export const GetStarted: React.FC<GetStartedProps> = ({ handleChangeStep }) => {
           </li>
         </ul>
         <div className="flex gap-[10px] lg:pl-[32px] justify-end mt-auto">
-          <button className="w-[150px] h-[40px] lg:w-[190px] lg:h-[40px] 2xl:w-[200px] 2xl:h-[48px] rounded-[49px] border-1 border-[#CCCCCC] text-[16px] text-[#18470D] font-medium cursor-pointer">
-            Cancel
-          </button>
+          <Link href={"/"}>
+            <button className="w-[150px] h-[40px] lg:w-[190px] lg:h-[40px] 2xl:w-[200px] 2xl:h-[48px] rounded-[49px] border-1 border-[#CCCCCC] text-[16px] text-[#18470D] font-medium cursor-pointer">
+              Cancel
+            </button>
+          </Link>
           <button
             onClick={() => handleChangeStep(1)}
             className="w-[139px] lg:w-[156px] h-[40px] 2xl:h-[48px] rounded-[49px] text-[16px] text-[#18470D] font-medium bg-[#CBEC5E] cursor-pointer"

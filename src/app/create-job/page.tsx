@@ -8,17 +8,20 @@ import { ThirdStep } from "../third-step/page";
 import { FourthStep } from "../fourth-step/page";
 import { FifthStep } from "../fifth-step/page";
 
-const stepsData = [
-  { stepCount: 1, active: false, checked: false },
-  { stepCount: 2, active: false, checked: false },
-  { stepCount: 3, active: false, checked: false },
-  { stepCount: 4, active: false, checked: false },
-  { stepCount: 5, active: false, checked: false },
-];
+
+const data = {
+  stepsData: [
+    { stepCount: 1, active: false, checked: false },
+    { stepCount: 2, active: false, checked: false },
+    { stepCount: 3, active: false, checked: false },
+    { stepCount: 4, active: false, checked: false },
+    { stepCount: 5, active: false, checked: false },
+  ]
+};
 
 export default function CreateJob() {
   const [currentStep, setCurrentStep] = useState(0);
-  const [currentStepsData, setCurrentStepsData] = useState(stepsData);
+  const [currentStepsData, setCurrentStepsData] = useState(data.stepsData);
 
   const handleChangeStep = (step: number) => {
     setCurrentStep(step);

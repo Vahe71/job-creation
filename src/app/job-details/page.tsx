@@ -58,7 +58,7 @@ export default function JobDetails() {
                   </div>
                 </div>
               </div>
-              <hr className="border-b-1 bg-[#B9B9B9]" />
+              <hr className="border-[#B9B9B9]" />
               <div className="p-[8px] sm:p-[12px] lg:p-[17px_16px] 2xl:p-[12px_18px] flex flex-col gap-[20px]">
                 <div className="border-1 border-[#CBEC5E] rounded-[16px] flex justify-between p-[8px] sm:p-[12px_10px] lg:p-[16px] 2xl:p-[21px_12px]">
                   <div>

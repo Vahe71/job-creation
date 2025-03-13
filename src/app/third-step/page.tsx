@@ -11,10 +11,17 @@ const shortCardData = [
 
 interface ThirdStepProps {
   handleChangeStep: (step: number) => void;
-  currentStepsData: Array<{ stepCount: number; active: boolean; checked: boolean }>;
+  currentStepsData: Array<{
+    stepCount: number;
+    active: boolean;
+    checked: boolean;
+  }>;
 }
 
-export const ThirdStep: React.FC<ThirdStepProps> = ({ handleChangeStep, currentStepsData }) => {
+export const ThirdStep: React.FC<ThirdStepProps> = ({
+  handleChangeStep,
+  currentStepsData,
+}) => {
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const handleRadioChange = (index: number) => {
     setSelectedOption(index);
@@ -25,19 +32,19 @@ export const ThirdStep: React.FC<ThirdStepProps> = ({ handleChangeStep, currentS
       <div className="sm:max-w-[482px] lg:max-w-[500px]">
         <StepsPanel stepsData={currentStepsData} />
         <h1 className="text-[#000] text-[20px] font-medium sm:text-[30px] lg:text-[40px] sm:mt-[40px] xl:mt-[20px] 2xl:mt-[22px] mt-[48px]">
-          Estimate the scope of the work
+          Define the project size
         </h1>
-        <div className="text-[#545454] text-[16px] sm:text-[14px] lg:text-[18px] mt-[19px] 2xl:mt-[7px] max-w-[520px]">
+        <div className="text-[#545454] text-[16px] sm:text-[14px] lg:text-[18px] mt-[19px] 2xl:mt-[25px] max-w-[520px]">
           <span>
-            These aren’t final answers, but this information helps us recommend
-            the right talent for what you need.
+            These aren’t final answers, but they help us connect you with the
+            right talent.
           </span>
         </div>
       </div>
       <div className="lg:max-w-[500px] 2xl:max-w-[590px] min-h-[373px] xl:min-h-[670px] w-full flex flex-col">
         <div className="flex-1">
           <h1 className="text-[#000] text-[16px] sm:text-[20px] font-medium lg:text-[24px] xl:mt-[13px] sm:mt-[48px] mb-[22px] sm:mb-[16px] lg:mb-[10px]">
-            What level of experience will it need?
+            What level of experience do you need?
           </h1>
           <ul className="flex flex-col gap-y-[10px]">
             {shortCardData.map((option, i) => (
@@ -71,10 +78,13 @@ export const ThirdStep: React.FC<ThirdStepProps> = ({ handleChangeStep, currentS
           </ul>
         </div>
         <div className="flex gap-[16px] pt-[20px]  justify-end">
-          <button className="w-[140px] h-[40px] lg:w-[200px] lg:h-[48px] text-[#18470D] text-[16px] border-1 border-[#CCCCCC] rounded-[50px] cursor-pointer font-medium">
+          <button onClick={() => handleChangeStep(2)} className="w-[140px] h-[40px] lg:w-[200px] lg:h-[48px] text-[#18470D] text-[16px] border-1 border-[#CCCCCC] rounded-[50px] cursor-pointer font-medium">
             Back
           </button>
-          <button onClick={() => handleChangeStep(4)} className="w-[140px] h-[40px] lg:w-[200px] lg:h-[48px] text-[#18470D] text-[16px] rounded-[50px] cursor-pointer font-medium bg-[#CBEC5E]">
+          <button
+            onClick={() => handleChangeStep(4)}
+            className="w-[140px] h-[40px] lg:w-[200px] lg:h-[48px] text-[#18470D] text-[16px] rounded-[50px] cursor-pointer font-medium bg-[#CBEC5E]"
+          >
             Next
           </button>
         </div>

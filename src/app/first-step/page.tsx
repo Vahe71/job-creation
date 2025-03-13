@@ -44,7 +44,7 @@ export const FirstStep: React.FC<FirstStepProps> = ({ handleChangeStep, currentS
 
   useEffect(() => {console.log(currentStepsData)}, [currentStepsData])
   return (
-    <div className="px-[20px] lg:justify-center xl:justify-between max-w-[569px] lg:max-w-[1240px] 2xl:max-w-[1530px] mx-auto lg:pt-[157px] sm:pt-[120px] pt-[48px] flex justify-between flex-wrap gap-x-[20px] mb-[111px] gap-y-[34px]">
+    <div className="px-[20px] xl:px-0 lg:justify-center xl:justify-between max-w-[569px] sm:max-w-[735px] lg:max-w-[1240px] 2xl:max-w-[1430px] mx-auto lg:pt-[157px] sm:pt-[120px] pt-[48px] flex justify-between flex-wrap sm:flex-nowrap gap-x-[20px] mb-[111px] gap-y-[34px]">
       <div>
         <StepsPanel stepsData={currentStepsData} />
         <h1 className="text-[#000] text-[20px] font-medium sm:text-[30px] lg:text-[40px] sm:mt-[19px] xl:mt-[13px] 2xl:mt-[22px] mt-[48px]">
@@ -57,7 +57,7 @@ export const FirstStep: React.FC<FirstStepProps> = ({ handleChangeStep, currentS
           </span>
         </div>
       </div>
-      <div className="lg:max-w-[560px] 2xl:max-w-[590px] min-h-[373px] lg:min-h-[512px] w-full flex flex-col">
+      <div className="lg:max-w-[560px] sm:max-w-[287px] 2xl:max-w-[590px] min-h-[373px] lg:min-h-[512px] w-full flex flex-col">
         <div className="flex-1">
           <div>
             <div>
@@ -100,7 +100,7 @@ export const FirstStep: React.FC<FirstStepProps> = ({ handleChangeStep, currentS
           </div>
         </div>
         <div className="flex gap-[16px] pt-[20px]  justify-end">
-          <button className="w-[140px] h-[40px] lg:w-[200px] lg:h-[48px] text-[#18470D] text-[16px] border-1 border-[#CCCCCC] rounded-[50px] cursor-pointer font-medium">
+          <button onClick={() => handleChangeStep(0)} className="w-[140px] h-[40px] lg:w-[200px] lg:h-[48px] text-[#18470D] text-[16px] border-1 border-[#CCCCCC] rounded-[50px] cursor-pointer font-medium">
             Back
           </button>
           <button
