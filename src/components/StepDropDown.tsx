@@ -9,7 +9,11 @@ type DropdownProps = {
   placeholder?: string;
   hasCheckboxes?: boolean;
   toggleCheckbox?: (id: number) => void;
+  setState?: React.Dispatch<React.SetStateAction<string>>;
   searchField?: boolean;
+  state?: string;
+  isValid?: boolean;
+  inValidText?: string;
 };
 
 const StepDropDown: React.FC<DropdownProps> = ({
@@ -19,10 +23,13 @@ const StepDropDown: React.FC<DropdownProps> = ({
   hasCheckboxes,
   toggleCheckbox,
   searchField,
+  state,
+  setState,
+  isValid = true,
+  inValidText
 }) => {
   const inputId = useId();
   const [openMenu, setOpenMenu] = useState(false);
-  const [selectedItem, setSelectedItem] = useState("");
   const [filteredList, setFilteredList] = useState<
     { title: string; checked?: boolean; id: number }[]
   >([]);
@@ -54,7 +61,7 @@ const StepDropDown: React.FC<DropdownProps> = ({
           onClick={() => setOpenMenu(!openMenu)}
           className={
             " border-[1px] min-h-[42px]  rounded-[12px] flex items-center px-[8px] py-[8px] 2xl:p-[9px] cursor-pointer" +
-            (openMenu ? " border-[#18470D] " : " border-[#242524] ")
+            (openMenu ? " border-[#18470D] " : " border-[#242524] " + (isValid ? ' ' : ' border-[#DD331D] '))
           }
         >
           {searchField ? (
@@ -70,10 +77,10 @@ const StepDropDown: React.FC<DropdownProps> = ({
           ) : (
             <div
               className={` flex items-center select-none w-full min-h-[24px] placeholder:text-[#2B2C2D] 2xl:text-[16px] text-[12px] sm:text-[14px] 2xl:placeholder:text-[16px] placeholder:text-[12px] sm:placeholder:text-[14px] focus:outline-0 ${
-                selectedItem ? "text-[#2B2C2D]" : "text-[#8B939F]"
+                state ? "text-[#2B2C2D]" : "text-[#8B939F]"
               }`}
             >
-              {selectedItem || placeholder || list[0].title}
+              {state || placeholder || list[0].title}
             </div>
           )}
           <div className={openMenu ? "rotate-180" : ""}>
@@ -126,7 +133,7 @@ const StepDropDown: React.FC<DropdownProps> = ({
                       if (hasCheckboxes) {
                         toggleCheckbox?.(item.id);
                       } else {
-                        setSelectedItem(item.title);
+                        setState?.(item.title);
                         setOpenMenu(false);
                       }
                     }}
@@ -138,6 +145,7 @@ const StepDropDown: React.FC<DropdownProps> = ({
             )}
           </ul>
         </div>
+        {!isValid && <p className="text-[#DD331D] text-[12px]">{inValidText}</p>}
       </div>
     </div>
   );

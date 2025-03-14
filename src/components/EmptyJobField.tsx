@@ -3,7 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-export const EmptyJobField = () => {
+interface EmptyJobFieldProps {
+  setCurrentPage: (value: string) => void;
+}
+
+export const EmptyJobField: React.FC<EmptyJobFieldProps> = ({
+  setCurrentPage,
+}) => {
   const [imageSrc, setImageSrc] = useState("/cardTops.png");
 
   useEffect(() => {
@@ -40,11 +46,10 @@ export const EmptyJobField = () => {
           <span className="mt-[20px] sm:mt-[10px] lg:mt-0 sm:text-[20px] lg:text-[30px] text-black font-medium">
             No job posted yet
           </span>
-          <Link href={"/create-job"}>
-            <button className="mt-[28px] w-[160px] h-[40px] sm:w-[200px] sm:h-[48px] text-[#18470D] text-[16px] border-1 border-[#545454] rounded-[50px] cursor-pointer font-medium">
-              + Post a Job
-            </button>
-          </Link>
+
+          <button onClick={() => setCurrentPage('create-job')} className="mt-[28px] w-[160px] h-[40px] sm:w-[200px] sm:h-[48px] text-[#18470D] text-[16px] border-1 border-[#545454] rounded-[50px] cursor-pointer font-medium">
+            + Post a Job
+          </button>
         </div>
       </div>
     </div>

@@ -37,9 +37,10 @@ const longCardData = [{ title: "1 to 3 months" }, { title: "3 to 6 months" }];
 
 interface GetStartedProps {
   handleChangeStep: (step: number) => void;
+  setCurrentPage: (value: string) => void;
 }
 
-export const GetStarted: React.FC<GetStartedProps> = ({ handleChangeStep }) => {
+export const GetStarted: React.FC<GetStartedProps> = ({ handleChangeStep, setCurrentPage }) => {
   const [firstLiOpened, setFirstLiOpened] = useState(true);
   const [secondLiOpened, setSecondLiOpened] = useState(false);
 
@@ -133,7 +134,7 @@ export const GetStarted: React.FC<GetStartedProps> = ({ handleChangeStep }) => {
         </ul>
         <div className="flex gap-[10px] lg:pl-[32px] justify-end mt-auto">
           <Link href={"/"}>
-            <button className="w-[150px] h-[40px] lg:w-[190px] lg:h-[40px] 2xl:w-[200px] 2xl:h-[48px] rounded-[49px] border-1 border-[#CCCCCC] text-[16px] text-[#18470D] font-medium cursor-pointer">
+            <button onClick={() => setCurrentPage('homepage')} className="w-[150px] h-[40px] lg:w-[190px] lg:h-[40px] 2xl:w-[200px] 2xl:h-[48px] rounded-[49px] border-1 border-[#CCCCCC] text-[16px] text-[#18470D] font-medium cursor-pointer">
               Cancel
             </button>
           </Link>

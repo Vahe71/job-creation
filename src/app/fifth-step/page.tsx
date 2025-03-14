@@ -9,6 +9,23 @@ const headingItems = [
   "Keep communication open and easy.",
   "Let them know how you like to work.",
 ];
+
+interface Job {
+  id: number;
+  type: string;
+  title: string;
+  createdTime: string;
+  invited: number;
+  proposals: number;
+  messaged: number;
+  desc: string;
+  category: string;
+  speciality: string;
+  budget: string;
+  scope: string;
+  skills: string[];
+}
+
 interface FifthStepProps {
   handleChangeStep: (step: number) => void;
   currentStepsData: Array<{
@@ -16,9 +33,11 @@ interface FifthStepProps {
     active: boolean;
     checked: boolean;
   }>;
+  jobsData: Job[];
+  setJobsData: React.Dispatch<React.SetStateAction<Job[]>>;
 }
 
-export const FifthStep: React.FC<FifthStepProps> = ({ currentStepsData }) => {
+export const FifthStep: React.FC<FifthStepProps> = ({ currentStepsData, handleChangeStep }) => {
   const [desc, setDesc] = useState("");
   return (
     <div className="2xl:max-w-[1650px] lg:max-w-[1200px] mx-auto mb-[40px]">
@@ -47,7 +66,7 @@ export const FifthStep: React.FC<FifthStepProps> = ({ currentStepsData }) => {
               })}
             </ul>
             <p className="text-[14px] text-[#545454] sm:text-[16px] lg:text-[18px] flex items-center gap-[10px]">
-            A great match starts with a great conversation!
+              A great match starts with a great conversation!
             </p>
           </div>
         </div>
@@ -88,14 +107,13 @@ export const FifthStep: React.FC<FifthStepProps> = ({ currentStepsData }) => {
         </div>
       </div>
       <div className="border-t-1 border-[#18470D] mt-[145px] sm:mt-[420px] lg:mt-[250px] pt-[30px] sm:pt-[37px] flex justify-end mx-[20px]">
-        <Link href="/job-details">
-          <button
-            className="cursor-pointer w-[167px] h-[40px] text-nowrap lg:w-[200px] lg:h-[48px] p-[8px_20px] lg:p-[12px_35px] rounded-full bg-[#CBEC5E] text-[#18470D] text-[16px] font-medium"
-            type="button"
-          >
-            Review Job Post
-          </button>
-        </Link>
+        <button
+          onClick={() => handleChangeStep(6)}
+          className="cursor-pointer w-[167px] h-[40px] text-nowrap lg:w-[200px] lg:h-[48px] p-[8px_20px] lg:p-[12px_35px] rounded-full bg-[#CBEC5E] text-[#18470D] text-[16px] font-medium"
+          type="button"
+        >
+          Review Job Post
+        </button>
       </div>
     </div>
   );

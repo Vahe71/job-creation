@@ -4,24 +4,58 @@ import { EditIcon } from "../../../public/icons/EditIcon";
 import { useState } from "react";
 import { JobDetailsPopup } from "@/components/JobDetailsPopup";
 
-const jobData = {
-  title: "Hairstylist Needed for Special Events",
-  desc: `We are looking for a talented and professional Hairstylist to provide  event-ready hairstyling for weddings, parties, corporate functions, 
-and photoshoots.
+interface Job {
+  id: number;
+  type: string;
+  title: string;
+  createdTime: string;
+  invited: number;
+  proposals: number;
+  messaged: number;
+  desc: string;
+  category: string;
+  speciality: string;
+  budget: string;
+  scope: string;
+  skills: string[];
+}
 
-Services – Bridal, Glam, Formal, Casual, Editorial Styling
-Techniques – Updos, Curls, Braiding, Blowouts, Sleek Styles
-Products & Tools – Professional Haircare Brands, Styling Tools
-Hair Prep – Wash, Treatment, Heat Protection, Volume Boosting
-Photo-Ready Styles – Long-Lasting Hold, Frizz-Free Finish
-Extras – Hair Extensions, Accessories Styling, Quick Touch-Ups`,
+const jobsDataApi = {
+  id: 1,
+  type: "draft",
+  title: "Hairstylist Needed for Special Events",
+  createdTime: "Created 10 minutes ago",
+  invited: 0,
+  proposals: 0,
+  messaged: 0,
+  desc: `We are looking for a talented and professional Hairstylist to provide  event-ready hairstyling for weddings, parties, corporate functions, 
+  and photoshoots.
+  
+  Services – Bridal, Glam, Formal, Casual, Editorial Styling
+  Techniques – Updos, Curls, Braiding, Blowouts, Sleek Styles
+  Products & Tools – Professional Haircare Brands, Styling Tools
+  Hair Prep – Wash, Treatment, Heat Protection, Volume Boosting
+  Photo-Ready Styles – Long-Lasting Hold, Frizz-Free Finish
+  Extras – Hair Extensions, Accessories Styling, Quick Touch-Ups`,
   category: "Beauty and Wellness",
   speciality: "Hairdressing and Styling",
   budget: "$1,000.00",
   scope: "One-time Job",
   skills: ["Hairdressing & Styling"],
 };
-export default function JobDetails() {
+
+interface JobDetailsProps {
+  handleChangeStep: (step: number) => void;
+  jobsData: Job[];
+  setJobsData: React.Dispatch<React.SetStateAction<Job[]>>;
+  setCurrentPage: (value: string) => void;
+}
+
+export const JobDetails: React.FC<JobDetailsProps> = ({
+  handleChangeStep,
+  jobsData,
+  setCurrentPage
+}) => {
   const [popupVisible, setPopupVisible] = useState(false);
   return (
     <>
@@ -50,7 +84,7 @@ export default function JobDetails() {
                 <div className="border-1 border-[#CBEC5E] rounded-[16px] p-[8px] sm:p-[12px_10px] lg:p-[16px] 2xl:p-[21px_12px] flex justify-between">
                   <div>
                     <span className="text-[14px] sm:text-[20px] lg:text-[24px] text-black font-medium">
-                      {jobData.title}
+                      {jobsDataApi.title}
                     </span>
                   </div>
                   <div className="border-1 border-[#CBEC5E] rounded-full min-w-[36px] h-[36px] cursor-pointer flex justify-center items-center">
@@ -88,16 +122,16 @@ export default function JobDetails() {
                     <EditIcon />
                   </div>
                 </div>
-                <JobDetail title="Category" desc={jobData.category} />
-                <JobDetail title="Speciality" desc={jobData.speciality} />
-                <JobDetail title="Budget" desc={jobData.budget} />
-                <JobDetail title="Scope" desc={jobData.scope} />
-                <JobDetail title="Skills" skills={jobData.skills} />
+                <JobDetail title="Category" desc={jobsDataApi.category} />
+                <JobDetail title="Speciality" desc={jobsDataApi.speciality} />
+                <JobDetail title="Budget" desc={jobsDataApi.budget} />
+                <JobDetail title="Scope" desc={jobsDataApi.scope} />
+                <JobDetail title="Skills" skills={jobsDataApi.skills} />
               </div>
             </div>
             <div className="border-t-1 border-[#B9B9B9] py-[30px]">
               <div className="flex gap-[16px] justify-between sm:px-[12px] lg:px-[16px] 2xl:px-[18px] px-[8px]">
-                <button className="w-[140px] h-[40px] lg:w-[167px] 2xl:w-[200px] lg:h-[48px] text-[#18470D] text-[16px] border-1 border-[#CCCCCC] rounded-[50px] cursor-pointer font-medium">
+                <button onClick={() => handleChangeStep(5)} className="w-[140px] h-[40px] lg:w-[167px] 2xl:w-[200px] lg:h-[48px] text-[#18470D] text-[16px] border-1 border-[#CCCCCC] rounded-[50px] cursor-pointer font-medium">
                   Back
                 </button>
                 <button
@@ -111,7 +145,7 @@ export default function JobDetails() {
           </div>
         </div>
       </main>
-      {popupVisible && <JobDetailsPopup setPopupVisible={setPopupVisible} />}
+      {popupVisible && <JobDetailsPopup handleChangeStep={handleChangeStep} setCurrentPage={setCurrentPage} setPopupVisible={setPopupVisible} />}
     </>
   );
-}
+};

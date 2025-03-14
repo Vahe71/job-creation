@@ -4,133 +4,62 @@ import { EmptyJobField } from "@/components/EmptyJobField";
 import { JobFieldCards } from "@/components/JobFieldCards";
 import Link from "next/link";
 import { useState } from "react";
+import { HomePage } from "./home-page/page";
+import { CreateJob } from "./create-job/page";
 
-const personsData = [
-  {
-    name: "Ioanna S.",
-    profession: "Beauty and Wellness",
-    totalEarning: "$3K+",
-    totalJobs: 12,
-    totalHours: 155,
-    lastContractTogether: "Bridal Hairstyling for Wedding Ceremony",
-    imgUrl: "/personOne.jpg",
-  },
-  {
-    name: "Ioanna S.",
-    profession: "Beauty and Wellness",
-    totalEarning: "$3K+",
-    totalJobs: 12,
-    totalHours: 155,
-    lastContractTogether: "Bridal Hairstyling for Wedding Ceremony",
-    imgUrl: "/personOne.jpg",
-  },
-  {
-    name: "Ioanna S.",
-    profession: "Beauty and Wellness",
-    totalEarning: "$3K+",
-    totalJobs: 12,
-    totalHours: 155,
-    lastContractTogether: "Bridal Hairstyling for Wedding Ceremony",
-    imgUrl: "/personOne.jpg",
-  },
-  {
-    name: "Ioanna S.",
-    profession: "Beauty and Wellness",
-    totalEarning: "$3K+",
-    totalJobs: 12,
-    totalHours: 155,
-    lastContractTogether: "Bridal Hairstyling for Wedding Ceremony",
-    imgUrl: "/personOne.jpg",
-  },
-  {
-    name: "Ioanna S.",
-    profession: "Beauty and Wellness",
-    totalEarning: "$3K+",
-    totalJobs: 12,
-    totalHours: 155,
-    lastContractTogether: "Bridal Hairstyling for Wedding Ceremony",
-    imgUrl: "/personOne.jpg",
-  },
-];
+interface Job {
+  id: number;
+  type: string;
+  title: string;
+  createdTime: string;
+  invited: number;
+  proposals: number;
+  messaged: number;
+  desc: string;
+  category: string;
+  speciality: string;
+  budget: string;
+  scope: string;
+  skills: string[];
+}
 
 const jobsDataApi = [
   {
+    id: 1,
     type: "draft",
     title: "Hairstylist Needed for Special Events",
     createdTime: "Created 10 minutes ago",
     invited: 0,
     proposals: 0,
     messaged: 0,
+    desc: `We are looking for a talented and professional Hairstylist to provide  event-ready hairstyling for weddings, parties, corporate functions, 
+  and photoshoots.
+  
+  Services – Bridal, Glam, Formal, Casual, Editorial Styling
+  Techniques – Updos, Curls, Braiding, Blowouts, Sleek Styles
+  Products & Tools – Professional Haircare Brands, Styling Tools
+  Hair Prep – Wash, Treatment, Heat Protection, Volume Boosting
+  Photo-Ready Styles – Long-Lasting Hold, Frizz-Free Finish
+  Extras – Hair Extensions, Accessories Styling, Quick Touch-Ups`,
+    category: "Beauty and Wellness",
+    speciality: "Hairdressing and Styling",
+    budget: "$1,000.00",
+    scope: "One-time Job",
+    skills: ["Hairdressing & Styling"],
   },
-  {
-    type: "new",
-    title: "Hairstylist Needed for Special Events",
-    createdTime: "Created 10 minutes ago",
-    invited: 0,
-    proposals: 0,
-    messaged: 0,
-  },
-  {
-    type: "archive",
-    title: "Hairstylist Needed for Special Events",
-    createdTime: "Created 10 minutes ago",
-    invited: 0,
-    proposals: 0,
-    messaged: 0,
-  },
-  {
-    type: "new",
-    title: "Hairstylist Needed for Special Events",
-    createdTime: "Created 10 minutes ago",
-    invited: 0,
-    proposals: 0,
-    messaged: 0,
-  },
+  
 ];
 
 export default function Home() {
-  return (
-    <main className="pt-[36px] sm:pt-[57px] lg:pt-[106px] 2xl:pt-[117px] px-[20px] sm:px-[40px] overflow-x-hidden">
-      <div className="sm:max-w-[780px] lg:max-w-[1200px] 2xl:max-w-[1380px] mx-auto">
-        <div>
-          <div
-            className={`${
-              false // has data
-                ? " mb-[27px] "
-                : " mb-[110px] sm:mb-[130px] lg:mb-[190px] "
-            }  flex justify-between items-center gap-[30px] flex-wrap`}
-          >
-            <span className="text-[20px] sm:text-[30px] xl:text-[40px] font-medium text-[#18470D]">
-              Welcome back, User
-            </span>
-            <Link href={"/create-job"}>
-              <button
-                className="cursor-pointer w-[200px] h-[40px] text-nowrap sm:w-[200px] sm:h-[48px] p-[8px_20px] lg:p-[12px_35px] rounded-full bg-[#CBEC5E] text-[#18470D] text-[16px] font-medium"
-                type="button"
-              >
-                + Post a job
-              </button>
-            </Link>
-          </div>
-          {false ? ( // has data
-            <JobFieldCards jobsDataApi={jobsDataApi} />
-          ) : (
-            <EmptyJobField />
-          )}
-        </div>
-        <div className="lg:mt-[127px] 2xl:mt-[70px] sm:mt-[85px] mt-[70px]">
-          <span className="text-[20px] sm:text-[24px] lg:text-[30px] font-medium text-[#18470D] sm:mb-[50px] lg:mb-[60px] mb-[18px] block">
-            Work together again on something new
-          </span>
-          <CardSlider personsData={personsData} />
-        </div>
-        <div className="sm:mt-[50px] lg:mt-[30px] 2xl:mt-[70px] mt-[93px]">
-          <span className="text-[20px] sm:text-[24px] lg:text-[30px] font-medium text-[#18470D] sm:mb-[27px] lg:mb-[32px] 2xl:mb-[60px] mb-[27px] block">
-            Top Talents
-          </span>
-          <CardSlider personsData={personsData} />
-        </div>
-      </div>
-    </main>
+  const [currentPage, setCurrentPage] = useState<string>("homepage");
+  const [jobsData, setJobsData] = useState(jobsDataApi);
+  return currentPage === "homepage" ? (
+    <HomePage setCurrentPage={setCurrentPage} jobsData={jobsData} />
+  ) : (
+    <CreateJob
+      setJobsData={setJobsData}
+      jobsData={jobsData}
+      setCurrentPage={setCurrentPage}
+    />
   );
 }

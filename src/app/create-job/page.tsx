@@ -7,7 +7,7 @@ import { SecondStep } from "../second-step/page";
 import { ThirdStep } from "../third-step/page";
 import { FourthStep } from "../fourth-step/page";
 import { FifthStep } from "../fifth-step/page";
-
+import { JobDetails } from "../job-details/page";
 
 const data = {
   stepsData: [
@@ -16,10 +16,36 @@ const data = {
     { stepCount: 3, active: false, checked: false },
     { stepCount: 4, active: false, checked: false },
     { stepCount: 5, active: false, checked: false },
-  ]
+  ],
 };
 
-export default function CreateJob() {
+interface Job {
+  id: number;
+  type: string;
+  title: string;
+  createdTime: string;
+  invited: number;
+  proposals: number;
+  messaged: number;
+  desc: string;
+  category: string;
+  speciality: string;
+  budget: string;
+  scope: string;
+  skills: string[];
+}
+
+interface CreateJobProps {
+  jobsData: Job[];
+  setCurrentPage: (value: string) => void;
+  setJobsData: React.Dispatch<React.SetStateAction<Job[]>>;
+}
+
+export const CreateJob: React.FC<CreateJobProps> = ({
+  jobsData,
+  setJobsData,
+  setCurrentPage,
+}) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [currentStepsData, setCurrentStepsData] = useState(data.stepsData);
 
@@ -30,7 +56,7 @@ export default function CreateJob() {
         return {
           ...prevStepData,
           active: prevStepData.stepCount === step ? true : false,
-          checked: prevStepData.stepCount < step ? true : false
+          checked: prevStepData.stepCount < step ? true : false,
         };
       });
     });
@@ -39,18 +65,53 @@ export default function CreateJob() {
   return (
     <main>
       {currentStep === 1 ? (
-        <FirstStep currentStepsData={currentStepsData} handleChangeStep={handleChangeStep} />
+        <FirstStep
+          currentStepsData={currentStepsData}
+          handleChangeStep={handleChangeStep}
+          setJobsData={setJobsData}
+          jobsData={jobsData}
+        />
       ) : currentStep === 2 ? (
-        <SecondStep currentStepsData={currentStepsData} handleChangeStep={handleChangeStep} />
+        <SecondStep
+          currentStepsData={currentStepsData}
+          handleChangeStep={handleChangeStep}
+          setJobsData={setJobsData}
+          jobsData={jobsData}
+        />
       ) : currentStep === 3 ? (
-        <ThirdStep currentStepsData={currentStepsData} handleChangeStep={handleChangeStep} />
+        <ThirdStep
+          currentStepsData={currentStepsData}
+          handleChangeStep={handleChangeStep}
+          setJobsData={setJobsData}
+          jobsData={jobsData}
+        />
       ) : currentStep === 4 ? (
-        <FourthStep currentStepsData={currentStepsData} handleChangeStep={handleChangeStep} />
+        <FourthStep
+          currentStepsData={currentStepsData}
+          handleChangeStep={handleChangeStep}
+          setJobsData={setJobsData}
+          jobsData={jobsData}
+        />
       ) : currentStep === 5 ? (
-        <FifthStep currentStepsData={currentStepsData} handleChangeStep={handleChangeStep} />
+        <FifthStep
+          currentStepsData={currentStepsData}
+          handleChangeStep={handleChangeStep}
+          setJobsData={setJobsData}
+          jobsData={jobsData}
+        />
+      ) : currentStep === 6 ? (
+        <JobDetails
+          handleChangeStep={handleChangeStep}
+          setJobsData={setJobsData}
+          jobsData={jobsData}
+          setCurrentPage={setCurrentPage}
+        />
       ) : (
-        <GetStarted handleChangeStep={handleChangeStep} />
+        <GetStarted
+          setCurrentPage={setCurrentPage}
+          handleChangeStep={handleChangeStep}
+        />
       )}
     </main>
   );
-}
+};
