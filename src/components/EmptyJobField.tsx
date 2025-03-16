@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 
 interface EmptyJobFieldProps {
@@ -26,7 +25,7 @@ export const EmptyJobField: React.FC<EmptyJobFieldProps> = ({
 
   return (
     <div className="  relative">
-      <div className=" w-full px-[22px] 2xl:pt-[35px] shadow-[0px_5px_24.5px_0px_#617CAE26] sm:h-[310px] lg:h-[340px] 2xl:h-[400px] h-[305px] bg-white border border-b-[#CBEC5E] border-b-[10px] border-[#EAEAEA] rounded-[30px] relative rounded-tr-none ">
+      <div className=" w-full px-[22px] 2xl:pt-[45px] shadow-[0px_5px_24.5px_0px_#617CAE26] sm:h-[310px] lg:h-[340px] 2xl:h-[400px] h-[305px] bg-white border border-b-[#CBEC5E] border-b-[10px] border-[#EAEAEA] rounded-[30px] relative rounded-tr-none ">
         <Image
           src={imageSrc}
           width={663}

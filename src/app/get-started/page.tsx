@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DropdownInput from "@/components/DropDownInput";
 import { TermCard } from "@/components/TermCard";
 import { GreenArrowBtn } from "../../../public/icons/GreenArrowBtn";
@@ -67,12 +67,12 @@ export const GetStarted: React.FC<GetStartedProps> = ({ handleChangeStep, setCur
           })}
         </ul>
       </div>
-      <div className="min-h-[335px] sm:min-h-[466px] lg:min-h-[540px] 2xl:min-h-[544px] w-full sm:w-auto max-w-[335px] sm:max-w-none my-[42px] sm:my-[82px] sm:mt-0 flex flex-col gap-[20px_0]">
-        <ul className="flex flex-col w-full sm:w-[357px] lg:w-[590px] pt-[10px] gap-[19px]">
+      <div className="min-h-[335px] sm:min-h-[466px] lg:min-h-[560px] 2xl:min-h-[544px] w-full sm:w-auto max-w-[335px] sm:max-w-none my-[42px] sm:my-[82px] sm:mt-0 flex flex-col gap-[20px_0]">
+        <ul className="flex flex-col w-full sm:w-[357px] lg:w-[590px] pt-[10px] gap-[32px]">
           <li
             className={
               "w-full  border-[#9B9B9B] border-b-1  cursor-pointer " +
-              (firstLiOpened ? " pb-[17px] " : " pb-[10px] ")
+              (firstLiOpened ? " pb-[10px] lg:pb-[17px] " : " pb-[10px] ")
             }
           >
             <div
@@ -90,7 +90,7 @@ export const GetStarted: React.FC<GetStartedProps> = ({ handleChangeStep, setCur
             </div>
             <div
               className={
-                "mt-[45px] flex gap-[23px] flex-wrap sm:justify-end sm:pr-[37px] lg:pr-[0]" +
+                "mt-[45px] flex gap-[14px] lg:gap-[23px] flex-wrap sm:justify-end sm:pr-[37px] lg:pr-[0]" +
                 (firstLiOpened ? " block " : " hidden ")
               }
             >
@@ -106,7 +106,7 @@ export const GetStarted: React.FC<GetStartedProps> = ({ handleChangeStep, setCur
               />
             </div>
           </li>
-          <li className="w-full  border-[#9B9B9B] border-b-1 cursor-pointer pb-[10px]">
+          <li className="w-full  border-[#9B9B9B] border-b-1 cursor-pointer pb-[8px]">
             <div
               className="flex justify-between items-center"
               onClick={() => setSecondLiOpened(!secondLiOpened)}

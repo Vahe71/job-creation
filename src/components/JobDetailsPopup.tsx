@@ -27,7 +27,7 @@ export const JobDetailsPopup: React.FC<PopupProps> = ({
         <div className="w-[60px] h-[60px] sm:w-[75px] sm:h-[75px]">
           <PopupCheckIcon />
         </div>
-        <span className="text-[16px] sm:text-[20px] lg:text-[26px] text-black font-medium mt-[27px]">
+        <span className="text-[16px] sm:text-[20px] lg:text-[26px] text-black font-medium mt-[6px] sm:mt-[27px]">
           Job created successfully!
         </span>
         <p className="text-[14px] lg:text-[16px] text-[#545454] max-w-[390px] text-center mt-[10px]">

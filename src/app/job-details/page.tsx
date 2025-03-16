@@ -53,7 +53,6 @@ interface JobDetailsProps {
 
 export const JobDetails: React.FC<JobDetailsProps> = ({
   handleChangeStep,
-  jobsData,
   setCurrentPage
 }) => {
   const [popupVisible, setPopupVisible] = useState(false);
@@ -93,7 +92,7 @@ export const JobDetails: React.FC<JobDetailsProps> = ({
                 </div>
               </div>
               <hr className="border-[#B9B9B9]" />
-              <div className="p-[8px] sm:p-[12px] lg:p-[17px_16px] 2xl:p-[12px_18px] flex flex-col gap-[20px]">
+              <div className="p-[4px] sm:p-[12px] sm:pt-[26px] lg:p-[17px_16px] 2xl:p-[12px_18px] flex flex-col gap-[20px]">
                 <div className="border-1 border-[#CBEC5E] rounded-[16px] flex justify-between p-[8px] sm:p-[12px_10px] lg:p-[16px] 2xl:p-[21px_12px]">
                   <div>
                     <span className="text-[16px] sm:text-[20px] text-black font-medium">
@@ -129,7 +128,7 @@ export const JobDetails: React.FC<JobDetailsProps> = ({
                 <JobDetail title="Skills" skills={jobsDataApi.skills} />
               </div>
             </div>
-            <div className="border-t-1 border-[#B9B9B9] py-[30px]">
+            <div className="border-t-1 border-[#B9B9B9] py-[30px] sm:py-[34px] lg:py-[30px]">
               <div className="flex gap-[16px] justify-between sm:px-[12px] lg:px-[16px] 2xl:px-[18px] px-[8px]">
                 <button onClick={() => handleChangeStep(5)} className="w-[140px] h-[40px] lg:w-[167px] 2xl:w-[200px] lg:h-[48px] text-[#18470D] text-[16px] border-1 border-[#CCCCCC] rounded-[50px] cursor-pointer font-medium">
                   Back

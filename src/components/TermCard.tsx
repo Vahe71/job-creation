@@ -30,7 +30,7 @@ export const TermCard: React.FC<TermCardProps> = ({
       <div className="flex items-center justify-between">
         <div className="flex items-center">
           <div
-            className={`min-w-[18px] sm:min-h-[24px] sm:min-w-[24px] lg:w-[24px] lg:h-[24px] w-[18px] h-[18px] rounded-[50%]  ${
+            className={`min-w-[18px] min-h-[24px] min-w-[24px] lg:w-[24px] lg:h-[24px] w-[18px] h-[18px] rounded-[50%]  ${
               cardChecked
                 ? "border-[5px] border-[#18470D]"
                 : "border-[2px] border-[#AEB3BC]"
@@ -49,7 +49,7 @@ export const TermCard: React.FC<TermCardProps> = ({
           height={40}
         />
       </div>
-      <div className="pl-[41px] flex flex-col gap-[10px] mt-[13px]">
+      <div className="pl-[41px] flex flex-col gap-[10px] mt-[25px] lg:mt-[13px]">
         {
           <ul className="flex flex-col gap-y-[10px]">
             {cardData.map((option, i) => (

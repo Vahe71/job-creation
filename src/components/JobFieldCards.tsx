@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import type { Swiper as SwiperType } from "swiper";
 import { GreenFolderIcon } from "../../public/icons/GreenFolderIcon";
 import { ThreeDotIcon } from "../../public/icons/ThreeDotIcon";
@@ -12,7 +12,6 @@ import { OpenedLetter } from "../../public/icons/OpenedLetter";
 import { ProposalsIcon } from "../../public/icons/ProposalsIcon";
 import { MessagesIcon } from "../../public/icons/MessagesIcon";
 import { SliderArrowBtn } from "../../public/icons/SliderArrowBtn";
-import Link from "next/link";
 
 interface CardSliderProps {
   jobsData: {
@@ -87,7 +86,7 @@ export const JobFieldCards: React.FC<CardSliderProps> = ({ jobsData, setCurrentP
               className="w-[130px] h-[8px] sm:h-[18px] sm:w-[313px] lg:h-[38px] 2xl:w-[273px] z-10 translate-y-[1px] sm:translate-y-[2px]"
             />
           </div>
-            <div onClick={() => setCurrentPage('create-job')} className=" cursor-pointer 2xl:pb-[20px] sm:min-w-[433px] h-[51px] sm:h-[106px] lg:h-[327px] border-1 border-[#CBEC5E] rounded-[30px] flex justify-center items-center text-[#18470D] text-[14px] sm:text-[22px] font-medium rounded-tr-none">
+            <div onClick={() => setCurrentPage('create-job')} className=" cursor-pointer 2xl:pb-[20px] sm:min-w-[433px] h-[51px] sm:h-[106px] lg:h-[327px] border-1 border-[#CBEC5E] rounded-[16px] sm:rounded-[30px] flex justify-center items-center text-[#18470D] text-[14px] sm:text-[22px] font-medium rounded-tr-none">
               + Post a Job
             </div>
         </div>

@@ -20,7 +20,7 @@ const DropdownInput: React.FC<DropdownProps> = ({ list, label }) => {
           {label}
         </label>
       </div>
-      <div className="mt-[41px]">
+      <div className="mt-[35px]">
         <div
           onClick={() => setOpenMenu(!openMenu)}
           className={

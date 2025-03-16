@@ -37,14 +37,13 @@ interface ThirdStepProps {
 export const ThirdStep: React.FC<ThirdStepProps> = ({
   handleChangeStep,
   currentStepsData,
-  setJobsData,
-  jobsData
 }) => {
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [buttonValid, setButtonValid] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   useEffect(() => {
-    if (selectedOption) {
+    if (selectedOption !== null) {
       setButtonValid(true)
     } else {
       setButtonValid(false)
@@ -53,16 +52,19 @@ export const ThirdStep: React.FC<ThirdStepProps> = ({
 
   const handleRadioChange = (index: number) => {
     setSelectedOption(index);
+    setErrorMsg('');
   };
 
   const handleNextClick = () => {
     if (selectedOption !== null) {
       handleChangeStep(4)
+    } else {
+      setErrorMsg('Select error');
     }
   }
  
   return (
-    <div className="lg:justify-center xl:justify-between max-w-[390px] px-[20px] xl:px-0 lg:max-w-[1240px] 2xl:max-w-[1395px] mx-auto lg:pt-[157px] sm:pt-[77px] pt-[48px] flex justify-between flex-wrap gap-x-[20px] mb-[111px] gap-y-[40px] sm:gap-y-[60px]">
+    <div className="lg:justify-center xl:justify-between max-w-[335px] sm:max-w-[400px] xl:px-0 lg:max-w-[1150px] 2xl:max-w-[1395px] mx-auto lg:pt-[157px] sm:pt-[77px] pt-[48px] flex justify-between flex-wrap gap-x-[20px] mb-[111px] gap-y-[40px] sm:gap-y-[60px]">
       <div className="sm:max-w-[482px] lg:max-w-[500px]">
         <StepsPanel stepsData={currentStepsData} />
         <h1 className="text-[#000] text-[20px] font-medium sm:text-[30px] lg:text-[40px] sm:mt-[40px] xl:mt-[20px] 2xl:mt-[22px] mt-[48px]">
@@ -78,7 +80,7 @@ export const ThirdStep: React.FC<ThirdStepProps> = ({
       <div className="lg:max-w-[500px] 2xl:max-w-[555px] min-h-[373px] xl:min-h-[670px] w-full flex flex-col">
         <div className="flex-1">
           <h1 className="text-[#000] text-[16px] sm:text-[20px] font-medium lg:text-[24px] xl:mt-[13px] sm:mt-0 mb-[22px] sm:mb-[16px] lg:mb-[10px]">
-            What level of experience do you need?
+            What level of experience do you need?*
           </h1>
           <ul className="flex flex-col gap-y-[10px]">
             {shortCardData.map((option, i) => (
@@ -110,6 +112,7 @@ export const ThirdStep: React.FC<ThirdStepProps> = ({
                 <span className="cursor-pointer">{option.title}</span>
               </li>
             ))}
+            {errorMsg && <p className="text-[#DD331D] text-[12px]">{errorMsg}</p>}
           </ul>
         </div>
         <div className="flex gap-[16px] pt-[20px]  justify-end">

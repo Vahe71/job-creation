@@ -145,7 +145,7 @@ const StepDropDown: React.FC<DropdownProps> = ({
             )}
           </ul>
         </div>
-        {!isValid && <p className="text-[#DD331D] text-[12px]">{inValidText}</p>}
+        {!isValid && <p className="mt-[8px] text-[#DD331D] text-[12px]">{inValidText}</p>}
       </div>
     </div>
   );

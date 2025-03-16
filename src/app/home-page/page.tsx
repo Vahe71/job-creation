@@ -2,8 +2,6 @@
 import { CardSlider } from "@/components/CardSlider";
 import { EmptyJobField } from "@/components/EmptyJobField";
 import { JobFieldCards } from "@/components/JobFieldCards";
-import Link from "next/link";
-import { useState } from "react";
 
 const personsData = [
   {
@@ -81,7 +79,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div>
           <div
             className={`${
-              jobsData.length // has data
+              true // has data
                 ? " mb-[27px] "
                 : " mb-[110px] sm:mb-[130px] lg:mb-[190px] "
             }  flex justify-between items-center gap-[30px] flex-wrap`}
@@ -97,7 +95,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               + Post a job
             </button>
           </div>
-          {jobsData.length ? ( // has data
+          {true ? ( // has data
             <JobFieldCards
               setCurrentPage={setCurrentPage}
               jobsData={jobsData}

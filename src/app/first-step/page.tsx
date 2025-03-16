@@ -64,8 +64,6 @@ interface FirstStepProps {
 export const FirstStep: React.FC<FirstStepProps> = ({
   handleChangeStep,
   currentStepsData,
-  jobsData,
-  setJobsData,
 }) => {
   const [jobTitle, setJobTitle] = useState("");
   const [category, setCategory] = useState("");
@@ -76,8 +74,16 @@ export const FirstStep: React.FC<FirstStepProps> = ({
   const [buttonValid, setButtonValid] = useState(false);
 
   const handleJobTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value.replace(/[0-9]/g, ""); 
-    setJobTitle(value);
+    const value = e.target.value;
+  
+    const regex = /^(?!^\p{N}+$)[\p{L}\p{N} ]+$/u;
+  
+    if (value === "" || regex.test(value)) {
+      setJobTitle(value);
+      setJobTitleValid(true); 
+    } else {
+      setJobTitleValid(false);
+    }
   };
 
   useEffect(() => {
@@ -115,7 +121,7 @@ export const FirstStep: React.FC<FirstStepProps> = ({
   };
 
   return (
-    <div className="px-[20px] xl:px-0 lg:justify-center xl:justify-between max-w-[569px] sm:max-w-[569px] lg:max-w-[1240px] 2xl:max-w-[1430px] mx-auto lg:pt-[157px] sm:pt-[120px] pt-[48px] flex justify-between flex-wrap lg:flex-nowrap gap-x-[20px] mb-[111px] gap-y-[34px]">
+    <div className=" xl:px-0 lg:justify-center lg:px-[20px] xl:px-none xl:justify-between max-w-[335px] sm:max-w-[569px] lg:max-w-[1240px] 2xl:max-w-[1430px] mx-auto lg:pt-[157px] sm:pt-[120px] pt-[48px] flex justify-between flex-wrap lg:flex-nowrap gap-x-[20px] mb-[111px] gap-y-[50px] sm:gap-y-[13px]">
       <div>
         <StepsPanel stepsData={currentStepsData} />
         <h1 className="text-[#000] text-[20px] font-medium sm:text-[30px] lg:text-[40px] sm:mt-[19px] xl:mt-[13px] 2xl:mt-[22px] mt-[48px]">
@@ -128,7 +134,7 @@ export const FirstStep: React.FC<FirstStepProps> = ({
           </span>
         </div>
       </div>
-      <div className="lg:max-w-[540px] max-w-[287px] sm:max-w-[514px] 2xl:max-w-[590px] min-h-[373px] lg:min-h-[512px] w-full flex flex-col">
+      <div className="lg:max-w-[540px] max-w-[335px] sm:max-w-[514px] 2xl:max-w-[590px] min-h-[373px] lg:min-h-[512px] w-full flex flex-col">
         <div className="flex-1">
           <div>
             <div>
@@ -155,10 +161,10 @@ export const FirstStep: React.FC<FirstStepProps> = ({
               
             </div>
             {!jobTitleValid && (
-                <p className="text-[#DD331D] text-[12px]">asdasd</p>
+                <p className="mt-[8px] text-[#DD331D] text-[12px]">Job title too short</p>
               )}
           </div>
-          <div className="mt-[20px]">
+          <div className="mt-[10px] sm:mt-[14px] lg:mt-[20px]">
             <label className="text-[#000] text-[16px] 2xl:text-[18px]">
               Category*
             </label>
