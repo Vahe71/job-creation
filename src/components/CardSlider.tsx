@@ -60,7 +60,7 @@ export const CardSlider: React.FC<CardSliderProps> = ({ personsData }) => {
                 </div>
                 <div className="flex gap-[4px] mt-[7px] items-center">
                   <span className="text-[18px] font-semibold">{item.name}</span>
-                  <SecuredButton />
+                  <div className="w-[20px] h-[20px]"><SecuredButton /></div>
                 </div>
                 <span className="text-[#A5A5A5] text-[14px]">
                   {item.profession}
