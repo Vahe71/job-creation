@@ -64,7 +64,7 @@ export const SecondStep: React.FC<SecondStepProps> = ({
     if (isValid) {
       handleChangeStep(3);
     } else {
-      setErrorMsg('Select at least one skill.')
+      setErrorMsg('Select at least one skill')
     }
   };
 
@@ -86,7 +86,7 @@ export const SecondStep: React.FC<SecondStepProps> = ({
         setDropDownValid(false);
         return false
       } else if (!isChecked.length) {
-        setErrorMsg('Select at least one skill.')
+        setErrorMsg('Select at least one skill')
         setDropDownValid(false);
       }
       setButtonValid(true)
@@ -153,7 +153,7 @@ export const SecondStep: React.FC<SecondStepProps> = ({
           </button>
           <button
             onClick={() => handleNextClick()}
-            className={`w-[140px] h-[40px] lg:w-[193px] lg:h-[48px] text-[16px] rounded-[50px] cursor-pointer font-medium ${buttonValid
+            className={`w-[140px] h-[40px] lg:w-[193px] lg:h-[48px] text-[16px] rounded-[50px] font-medium ${buttonValid
               ? " bg-[#CBEC5E] text-[#18470D] cursor-pointer "
               : " bg-[#EAEAEA] text-[#B8B8B8] "
               }`}

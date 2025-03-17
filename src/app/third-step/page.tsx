@@ -40,7 +40,6 @@ export const ThirdStep: React.FC<ThirdStepProps> = ({
 }) => {
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [buttonValid, setButtonValid] = useState(false);
-  const [errorMsg, setErrorMsg] = useState('');
 
   useEffect(() => {
     if (selectedOption !== null) {
@@ -52,15 +51,12 @@ export const ThirdStep: React.FC<ThirdStepProps> = ({
 
   const handleRadioChange = (index: number) => {
     setSelectedOption(index);
-    setErrorMsg('');
   };
 
   const handleNextClick = () => {
     if (selectedOption !== null) {
       handleChangeStep(4)
-    } else {
-      setErrorMsg('Select error');
-    }
+    } 
   }
  
   return (
@@ -112,7 +108,6 @@ export const ThirdStep: React.FC<ThirdStepProps> = ({
                 <span className="cursor-pointer">{option.title}</span>
               </li>
             ))}
-            {errorMsg && <p className="text-[#DD331D] text-[12px]">{errorMsg}</p>}
           </ul>
         </div>
         <div className="flex gap-[16px] pt-[20px]  justify-end">
@@ -124,7 +119,7 @@ export const ThirdStep: React.FC<ThirdStepProps> = ({
           </button>
           <button
             onClick={() => handleNextClick()}
-            className={`w-[140px] h-[40px] lg:w-[200px] lg:h-[48px] text-[#18470D] text-[16px] rounded-[50px] cursor-pointer font-medium bg-[#CBEC5E] ${
+            className={`w-[140px] h-[40px] lg:w-[200px] lg:h-[48px] text-[#18470D] text-[16px] rounded-[50px] font-medium bg-[#CBEC5E] ${
               buttonValid
                 ? " bg-[#CBEC5E] text-[#18470D] cursor-pointer "
                 : " bg-[#EAEAEA] text-[#B8B8B8] "

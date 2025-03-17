@@ -62,7 +62,7 @@ export const FourthStep: React.FC<FourthStepProps> = ({
     if (inputBudget) {
       handleChangeStep(5);
     } else {
-      setErrorMsg('write budget')
+      setErrorMsg('This field is required')
     }
   }
 
@@ -128,7 +128,7 @@ export const FourthStep: React.FC<FourthStepProps> = ({
           </button>
           <button
             onClick={() => handleNextClick()}
-            className={`w-[140px] h-[40px] lg:w-[200px] lg:h-[48px] text-[16px] rounded-[50px] cursor-pointer font-medium  ${
+            className={`w-[140px] h-[40px] lg:w-[200px] lg:h-[48px] text-[16px] rounded-[50px] font-medium  ${
               buttonValid
                 ? " bg-[#CBEC5E] text-[#18470D] cursor-pointer "
                 : " bg-[#EAEAEA] text-[#B8B8B8] "

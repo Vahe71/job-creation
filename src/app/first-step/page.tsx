@@ -161,7 +161,7 @@ export const FirstStep: React.FC<FirstStepProps> = ({
               
             </div>
             {!jobTitleValid && (
-                <p className="mt-[8px] text-[#DD331D] text-[12px]">Job title too short</p>
+                <p className="mt-[8px] text-[#DD331D] text-[12px]">This field is required</p>
               )}
           </div>
           <div className="mt-[10px] sm:mt-[14px] lg:mt-[20px]">
@@ -171,7 +171,7 @@ export const FirstStep: React.FC<FirstStepProps> = ({
             <div className="mt-[8px]">
               <StepDropDown
                 isValid={categoryValid}
-                inValidText="error"
+                inValidText="This field is required"
                 state={category}
                 setState={setCategory}
                 list={categories}
