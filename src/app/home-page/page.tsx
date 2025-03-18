@@ -79,7 +79,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div>
           <div
             className={`${
-              true // has data
+              false // has data
                 ? " mb-[27px] "
                 : " mb-[110px] sm:mb-[130px] lg:mb-[190px] "
             }  flex justify-between items-center gap-[30px] flex-wrap`}
@@ -95,7 +95,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               + Post a job
             </button>
           </div>
-          {true ? ( // has data
+          {false ? ( // has data
             <JobFieldCards
               setCurrentPage={setCurrentPage}
               jobsData={jobsData}
