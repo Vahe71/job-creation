@@ -80,7 +80,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div
             className={`${
               false // has data
-                ? " mb-[27px] "
+                ? " mb-[39px] sm:mb-[27px] "
                 : " mb-[110px] sm:mb-[130px] lg:mb-[190px] "
             }  flex justify-between items-center gap-[30px] flex-wrap`}
           >
@@ -104,7 +104,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             <EmptyJobField setCurrentPage={setCurrentPage} />
           )}
         </div>
-        <div className="lg:mt-[127px] 2xl:mt-[70px] sm:mt-[85px] mt-[70px]">
+        <div className="lg:mt-[127px] 2xl:mt-[70px] sm:mt-[85px] mt-[55px]">
           <span className="text-[20px] sm:text-[24px] lg:text-[30px] font-medium text-[#18470D] sm:mb-[50px] lg:mb-[60px] mb-[18px] block">
             Work together again on something new
           </span>

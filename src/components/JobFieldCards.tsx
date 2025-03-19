@@ -12,6 +12,12 @@ import { OpenedLetter } from "../../public/icons/OpenedLetter";
 import { ProposalsIcon } from "../../public/icons/ProposalsIcon";
 import { MessagesIcon } from "../../public/icons/MessagesIcon";
 import { SliderArrowBtn } from "../../public/icons/SliderArrowBtn";
+import { EmptyCardGreen2XL } from "../../public/EmptyCardGreen2XL";
+import { EmptyCardGreenSM } from "../../public/EmptyCardGreenSM";
+import { EmptyCardGreenMobile } from "../../public/EmptyCardGreenMobile";
+import { JobCardLG } from "../../public/JobCardLG";
+import { JobCardSM } from "../../public/JobCardSM";
+import { JobCardMobile } from "../../public/JobCardMobile";
 
 interface CardSliderProps {
   jobsData: {
@@ -25,21 +31,12 @@ interface CardSliderProps {
   setCurrentPage: (value: string) => void;
 }
 
-export const JobFieldCards: React.FC<CardSliderProps> = ({ jobsData, setCurrentPage }) => {
+export const JobFieldCards: React.FC<CardSliderProps> = ({
+  jobsData,
+  setCurrentPage,
+}) => {
   const swiperRef = useRef<SwiperType | null>(null);
   const [cardsType, setCardsType] = useState("");
-
-  const [imageSrc, setImageSrc] = useState("/cardTopGreen.png");
-
-  useLayoutEffect(() => {
-    if (window.innerWidth > 1024) {
-      setImageSrc("/cardTopGreen.png");
-    } else if (window.innerWidth > 640) {
-      setImageSrc("/cardTopGreenTablet.png");
-    } else if (window.innerWidth < 640) {
-      setImageSrc("/cardTopGreenSmall.png");
-    }
-  }, []);
 
   return (
     <div>
@@ -75,20 +72,40 @@ export const JobFieldCards: React.FC<CardSliderProps> = ({ jobsData, setCurrentP
           </div>
         </div>
       </div>
-      <div className="flex flex-col lg:flex-row gap-[60px] sm:gap-[40px] lg:gap-[30px] mt-[33px] lg:mt-[45px] max-w-full">
-        <div className=" ">
+      <div className="flex flex-col lg:flex-row gap-[60px] sm:gap-[40px] lg:gap-[30px] mt-[24px] lg:mt-[45px] max-w-full">
+        <div className="h-fit ">
           <div className="flex justify-end">
-            <Image
+            {/* <Image
               src={imageSrc}
               alt="postedCardTop"
               width={277}
               height={40}
               className="w-[130px] h-[8px] sm:h-[18px] sm:w-[313px] lg:h-[38px] 2xl:w-[273px] z-10 translate-y-[1px] sm:translate-y-[2px]"
-            />
-          </div>
-            <div onClick={() => setCurrentPage('create-job')} className=" cursor-pointer 2xl:pb-[20px] sm:min-w-[433px] h-[51px] sm:h-[106px] lg:h-[327px] border-1 border-[#CBEC5E] rounded-[16px] sm:rounded-[30px] flex justify-center items-center text-[#18470D] text-[14px] sm:text-[22px] font-medium !rounded-tr-none">
-              + Post a Job
+            /> */}
+            <div
+              onClick={() => setCurrentPage("create-job")}
+              className="lg:w-[433px] lg:h-[380px] cursor-pointer w-full h-[60px] sm:h-[124px] relative"
+            >
+              <div className="hidden lg:block h-full">
+                <EmptyCardGreen2XL />
+              </div>
+              <div className="hidden sm:block lg:hidden sm:h-[124px]">
+                <EmptyCardGreenSM />
+              </div>
+              <div className="h-[60px] sm:hidden">
+                <EmptyCardGreenMobile />
+              </div>
+              <span className="w-full text-center absolute top-[26px] sm:top-[53px] lg:top-[174px] text-[#18470D] text-[14px] sm:text-[22px] font-medium ">
+                + Post a Job
+              </span>
             </div>
+          </div>
+          {/* <div
+            onClick={() => setCurrentPage("create-job")}
+            className=" cursor-pointer 2xl:pb-[20px] sm:min-w-[433px] h-[51px] sm:h-[106px] lg:h-[327px] border-1 border-[#CBEC5E] rounded-[16px] sm:rounded-[30px] flex justify-center items-center text-[#18470D] text-[14px] sm:text-[22px] font-medium !rounded-tr-none"
+          >
+            + Post a Job
+          </div> */}
         </div>
         <div className="w-full max-w-full lg:overflow-x-hidden overflow-x-visible">
           <Swiper
@@ -101,7 +118,7 @@ export const JobFieldCards: React.FC<CardSliderProps> = ({ jobsData, setCurrentP
               prevEl: ".prev",
             }}
             breakpoints={{
-              640: { spaceBetween: 30 },
+              1024: { spaceBetween: 30 },
             }}
             centerInsufficientSlides={false}
             onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -116,14 +133,24 @@ export const JobFieldCards: React.FC<CardSliderProps> = ({ jobsData, setCurrentP
                   className="!w-[252px] sm:!w-[380px] lg:!w-[433px] !flex-none "
                 >
                   <div className="  relative h-full max-w-">
-                    <div className="flex justify-end relative">
-                      <Image
+                    <div className="hidden lg:block w-[433px] h-[368px] absolute">
+                      <JobCardLG />
+                    </div>
+                    <div className="hidden sm:block lg:hidden w-[380px] h-[374px] absolute">
+                      <JobCardSM />
+                    </div>
+                    <div className="sm:hidden w-[252px] h-[248px] absolute">
+                      <JobCardMobile />
+                    </div>
+
+                    <div className="flex justify-end relative h-[26px]  sm:h-[40px] lgh-[46px]">
+                      {/* <Image
                         src={"/postedCardTops.png"}
                         alt="postedCardTop"
                         width={277}
                         height={40}
                         className="w-[160px] h-[36px] sm:w-[240px] sm:h-[40px] lg:w-[273px] z-10 translate-y-[2px]"
-                      />
+                      /> */}
                       <div
                         className={`text-[12px] sm:text-[16px] absolute top-[13px] sm:top-[16px] right-[23px] z-10 p-[4px_16px] rounded-[30px] ${
                           job.type === "draft"
@@ -144,7 +171,7 @@ export const JobFieldCards: React.FC<CardSliderProps> = ({ jobsData, setCurrentP
                           : ""}
                       </div>
                     </div>
-                    <div className=" h-full w-full pb-[19px] sm:pb-[30px] px-[12px] sm:px-[28px] lg:px-[22px] pt-[28px] sm:pt-[55px] 2xl:pt-[50px] bg-white border border-b-[#CBEC5E] border-b-[6px] border-[#EAEAEA] rounded-[30px] relative rounded-tr-none ">
+                    <div className=" h-full w-full pb-[19px] sm:pb-[30px] px-[12px] sm:px-[28px] lg:px-[22px] pt-[28px] sm:pt-[55px] 2xl:pt-[50px] rounded-[30px] relative rounded-tr-none ">
                       <div className="flex">
                         <div className="mr-[10px] sm:mr-[15px] min-w-[20px] sm:min-w-none w-[20px] h-[20px] sm:w-[30px] sm:h-[30px] lg:w-[48px] lg:h-[48px] flex justify-center items-center border-1 border-[#CCCCCC] rounded-full">
                           <div className="lg:w-[24px] lg:h-[24px] sm:w-[15px] sm:h-[15px] w-[10px] h-[10px]">
