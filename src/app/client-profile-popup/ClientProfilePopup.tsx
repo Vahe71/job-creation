@@ -1,5 +1,5 @@
 "use client";
-import { CloseIcon } from "@/components/CloseIcon";
+import { CloseIcon } from "../../../public/icons/CloseIcon";
 import { useState, useCallback, useEffect } from "react";
 import Cropper from "react-easy-crop";
 import { LoupeZoomIcon } from "../../../public/icons/LoupeZoomIcon";

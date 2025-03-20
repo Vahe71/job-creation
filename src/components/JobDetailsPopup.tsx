@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { PopupCheckIcon } from "../../public/icons/PopupCheckIcon";
-import { CloseIcon } from "./CloseIcon";
+import { CloseIcon } from "../../public/icons/CloseIcon";
 
 interface PopupProps {
   setPopupVisible: React.Dispatch<React.SetStateAction<boolean>>;
